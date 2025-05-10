@@ -2,3 +2,18 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'MetaMorph'
 theme = 'hugo-flex'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[menu.main]]
+name = "About"
+pageRef = "/test"
+weight = 1
+
+[[menu.main]]
+name = "Postss"
+pageRef = "/test2"
+weight = 2
