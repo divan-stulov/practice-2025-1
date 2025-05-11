@@ -6,6 +6,11 @@ title = ''
 
 
 <div style="text-align: center;">
-  <h1>Welcome to MetaMorph</h1>
-  <p>This is a brief annotation of our project.</p>
+  <h1>Название проекта</h1>
+  <p>Проект в котором делается дело..</p>
 </div>
+
+- [x] Task complete
+- [ ] Task not complete
+
+![Alt text](/images/okun.png)
