@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'MetaMorph'
 theme = 'hugo-flex'
 
+[params]
+  footer = ""
+  color = "#2C3E50"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
