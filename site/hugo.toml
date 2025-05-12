@@ -14,7 +14,7 @@ theme = 'hugo-flex'
 
 [[menu.main]]
 name = "Участники"
-pageRef = "/test"
+pageRef = "/team"
 weight = 1
 
 [[menu.main]]
