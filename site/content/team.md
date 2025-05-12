@@ -1,5 +1,5 @@
 +++
-date = '2025-05-11T20:51:28+03:00'
+date = ''
 draft = true
 title = 'Team'
 +++
