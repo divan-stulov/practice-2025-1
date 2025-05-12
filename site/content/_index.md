@@ -6,11 +6,6 @@ title = ''
 
 
 <div style="text-align: center;">
-  <h1>Название проекта</h1>
+  <h1>Собственный бизнес в партнёрстве с «Texel». Аватары для метавселенных, VR и игр</h1>
   <p>Проект в котором делается дело..</p>
 </div>
-
-- [x] Task complete
-- [ ] Task not complete
-
-![Alt text](/images/okun.png)
