@@ -1,3 +1,4 @@
+/*
 //Using SDL, standard IO, and strings
 #include <SDL.h>
 #include <stdio.h>
@@ -229,3 +230,4 @@ int main( int argc, char* args[] )
 
 	return 0;
 }
+*/
