@@ -30,5 +30,8 @@
     <ClCompile Include="05_optimized_surface_loading_and_soft_stretching\05_optimized_surface_loading_and_soft_stretching.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="06_extension_libraries_and_loading_other_image_formats\06_extension_libraries_and_loading_other_image_formats.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

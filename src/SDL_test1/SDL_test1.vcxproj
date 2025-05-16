@@ -24,6 +24,7 @@
     <ClCompile Include="03_event_driven_programming.cpp" />
     <ClCompile Include="04_key_presses\04_key_presses.cpp" />
     <ClCompile Include="05_optimized_surface_loading_and_soft_stretching\05_optimized_surface_loading_and_soft_stretching.cpp" />
+    <ClCompile Include="06_extension_libraries_and_loading_other_image_formats\06_extension_libraries_and_loading_other_image_formats.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -78,8 +79,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\vclib\SDL2-2.24.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vclib\SDL2-2.24.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclib\SDL2_image-2.6.3\include;C:\vclib\SDL2-2.24.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclib\SDL2_image-2.6.3\lib\x64;C:\vclib\SDL2-2.24.0\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,7 +120,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
