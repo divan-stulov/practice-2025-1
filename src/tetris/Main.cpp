@@ -1,37 +1,13 @@
-/*****************************************************************************************
-/* Desc: Tetris tutorial
-/*
-/* gametuto.com - Javier López López (javilop.com)
-/*
-/*****************************************************************************************
-/*
-/* Creative Commons - Attribution 3.0 Unported
-/* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
-/*
-/* Under the following conditions:
-/* Attribution. You must attribute the work in the manner specified by the author or licensor 
-/* (but not in any way that suggests that they endorse you or your use of the work).
-/*
-/*****************************************************************************************/
+#define SDL_MAIN_HANDLED
 
 #include "Game.h"
-#ifndef LINUX
-#include <windows.h>
-#endif
 
 /*
 ==================
 Main
 ==================
 */
-#ifndef LINUX
-int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)	// Linux users should quit this line
-#else
-int main()
-#endif
-// int main ()  // Linux users should use this line instead the previous one
+int main(int argc, char* args[])
 {
 	// ----- Vars -----
 
@@ -54,7 +30,9 @@ int main()
 
 	// ----- Main Loop -----
 
-	while (!mIO.IsKeyDown (SDLK_ESCAPE))
+	bool quit = false;
+
+	while (!quit)
 	{
 		// ----- Draw -----
 
@@ -68,6 +46,9 @@ int main()
 
 		switch (mKey)
 		{
+			case (SDLK_ESCAPE):
+				quit = true;
+				break;
 			case (SDLK_RIGHT): 
 			{
 				if (mBoard.IsPossibleMovement (mGame.mPosX + 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
@@ -101,7 +82,7 @@ int main()
 				if (mBoard.IsGameOver())
 				{
 					mIO.Getkey();
-					exit(0);
+					quit = true;
 				}
 
 				mGame.CreateNewPiece();
@@ -137,7 +118,7 @@ int main()
 				if (mBoard.IsGameOver())
 				{
 					mIO.Getkey();
-					exit(0);
+					quit = true;
 				}
 
 				mGame.CreateNewPiece();

@@ -1,24 +1,3 @@
-/*****************************************************************************************
-/* File: Board.cpp
-/* Desc: Board of the game. A matrix of n x n holes.
-/*
-/* gametuto.com - Javier López López (javilop.com)
-/*
-/*****************************************************************************************
-/*
-/* Creative Commons - Attribution 3.0 Unported
-/* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
-/*
-/* Under the following conditions:
-/* Attribution. You must attribute the work in the manner specified by the author or licensor 
-/* (but not in any way that suggests that they endorse you or your use of the work).
-/*
-/*****************************************************************************************/
-
-// ----- Includes -----
-
 #include "Board.h"
 
 /*
@@ -158,7 +137,7 @@ bool Board::IsFreeBlock (int pX, int pY)
 
 /* 
 ======================================									
-Returns the horizontal position (isn pixels) of the block given like parameter
+Returns the horizontal position (in pixels) of the block given like parameter
 
 Parameters:
 
@@ -213,7 +192,7 @@ bool Board::IsPossibleMovement (int pX, int pY, int pPiece, int pRotation)
 				j1 > BOARD_HEIGHT - 1)
 			{
 				if (mPieces->GetBlockType (pPiece, pRotation, j2, i2) != 0)
-					return 0;		
+					return false;		
 			}
 
 			// Check if the piece have collisioned with a block already stored in the map
