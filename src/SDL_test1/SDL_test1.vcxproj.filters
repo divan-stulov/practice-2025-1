@@ -39,5 +39,8 @@
     <ClCompile Include="08_geometry_rendering\08_geometry_rendering.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="09_the_viewport\09_the_viewport.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

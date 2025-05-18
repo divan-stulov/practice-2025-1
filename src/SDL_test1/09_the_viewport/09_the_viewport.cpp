@@ -1,10 +1,11 @@
-/*
-//Using SDL, SDL_image, standard IO, math, and strings
+/*This source code copyrighted by Lazy Foo' Productions 2004-2024
+and may not be redistributed without written permission.*/
+
+//Using SDL, SDL_image, standard IO, and strings
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string>
-#include <cmath>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -27,6 +28,9 @@ SDL_Window* gWindow = NULL;
 
 //The window renderer
 SDL_Renderer* gRenderer = NULL;
+
+//Current displayed texture
+SDL_Texture* gTexture = NULL;
 
 bool init()
 {
@@ -87,12 +91,24 @@ bool loadMedia()
 	//Loading success flag
 	bool success = true;
 
+	//Load texture
+	gTexture = loadTexture( "09_the_viewport/viewport.png" );
+	if( gTexture == NULL )
+	{
+		printf( "Failed to load texture image!\n" );
+		success = false;
+	}
+
 	//Nothing to load
 	return success;
 }
 
 void close()
 {
+	//Free loaded image
+	SDL_DestroyTexture( gTexture );
+	gTexture = NULL;
+
 	//Destroy window	
 	SDL_DestroyRenderer( gRenderer );
 	SDL_DestroyWindow( gWindow );
@@ -170,26 +186,42 @@ int main( int argc, char* args[] )
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 				SDL_RenderClear( gRenderer );
 
-				//Render red filled quad
-				SDL_Rect fillRect = { SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
-				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0x00, 0x00, 0xFF );		
-				SDL_RenderFillRect( gRenderer, &fillRect );
-
-				//Render green outlined quad
-				SDL_Rect outlineRect = { SCREEN_WIDTH / 6, SCREEN_HEIGHT / 6, SCREEN_WIDTH * 2 / 3, SCREEN_HEIGHT * 2 / 3 };
-				SDL_SetRenderDrawColor( gRenderer, 0x00, 0xFF, 0x00, 0xFF );		
-				SDL_RenderDrawRect( gRenderer, &outlineRect );
+				//Top left corner viewport
+				SDL_Rect topLeftViewport;
+				topLeftViewport.x = 0;
+				topLeftViewport.y = 0;
+				topLeftViewport.w = SCREEN_WIDTH / 2;
+				topLeftViewport.h = SCREEN_HEIGHT / 2;
+				SDL_RenderSetViewport( gRenderer, &topLeftViewport );
 				
-				//Draw blue horizontal line
-				SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0xFF, 0xFF );		
-				SDL_RenderDrawLine( gRenderer, 0, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT / 2 );
+				//Render texture to screen
+				SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
 
-				//Draw vertical line of yellow dots
-				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0x00, 0xFF );
-				for( int i = 0; i < SCREEN_HEIGHT; i += 4 )
-				{
-					SDL_RenderDrawPoint( gRenderer, SCREEN_WIDTH / 2, i );
-				}
+
+				//Top right viewport
+				SDL_Rect topRightViewport;
+				topRightViewport.x = SCREEN_WIDTH / 2;
+				topRightViewport.y = 0;
+				topRightViewport.w = SCREEN_WIDTH / 2;
+				topRightViewport.h = SCREEN_HEIGHT / 2;
+				SDL_RenderSetViewport( gRenderer, &topRightViewport );
+				
+				//Render texture to screen
+				SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
+
+
+				//Bottom viewport
+				SDL_Rect bottomViewport;
+				bottomViewport.x = 0;
+				bottomViewport.y = SCREEN_HEIGHT / 2;
+				bottomViewport.w = SCREEN_WIDTH;
+				bottomViewport.h = SCREEN_HEIGHT / 2;
+				SDL_RenderSetViewport( gRenderer, &bottomViewport );
+
+				
+				//Render texture to screen
+				SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
+
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
@@ -202,4 +234,3 @@ int main( int argc, char* args[] )
 
 	return 0;
 }
-*/
