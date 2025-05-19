@@ -102,8 +102,3 @@ int IO::Getkey() {
     }
     return event.key.keysym.sym;
 }
-
-int IO::IsKeyDown(int pKey) {
-    const Uint8* mKeytable = SDL_GetKeyboardState(NULL);
-    return mKeytable[pKey];
-}

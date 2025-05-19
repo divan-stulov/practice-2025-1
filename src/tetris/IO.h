@@ -26,7 +26,6 @@ public:
 	int InitGraph			();
 	int Pollkey				();
 	int Getkey				();
-	int IsKeyDown			(int pKey);
 	void UpdateScreen		();
 
 };

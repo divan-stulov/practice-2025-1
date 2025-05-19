@@ -1,6 +1,6 @@
 +++
 date = '2025-05-10T07:07:36+03:00'
-draft = true
+draft = false
 title = ''
 showDate = false
 +++
