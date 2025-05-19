@@ -8,10 +8,7 @@
 
 ## Демонтстрация работы
 
-<video width="640" height="360" controls>
-    <source src="media/tetris_showcase.mp4" type="video/mp4">
-    Тут должно было быть видео, если его нет все сломалось.
-</video>
+[Видео](media/tetris_showcase.mp4)
 
 ## Принцип работы фигур
 
